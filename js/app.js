@@ -15,7 +15,7 @@ let valAct = document.getElementById("actual").value;
 // Declaración de variables
 
 let numeros = [];
-
+let nums_availables = [0,1,2,3,4,5,6,7,8,9]
 let  cadena = "";
 
 
@@ -24,63 +24,14 @@ let  cadena = "";
 // Guarda los números en un arreglo
 
 function guardaNum(num){ 
-
-    switch (num){
-
-        case ".":
-            valorActual.textContent = valorActual.textContent + ".";
-            numeros.push(".");
-        break;
-
-        case "0": 
-            valorActual.textContent = valorActual.textContent + "0";
-            numeros.push("0");
-        break;
-
-        case "1": 
-            valorActual.textContent = valorActual.textContent + "1";
-            numeros.push("1");
-        break;
-
-        case "2": 
-            valorActual.textContent = valorActual.textContent + "2";
-            numeros.push("2");
-        break;
-
-        case "3": 
-            valorActual.textContent = valorActual.textContent + "3";
-            numeros.push("3");
-        break;
-
-        case "4": 
-            valorActual.textContent = valorActual.textContent + "4";
-            numeros.push("4");
-        break;
-
-        case "5": 
-            valorActual.textContent = valorActual.textContent + "5";
-            numeros.push("5");
-        break;
-
-        case "6": 
-            valorActual.textContent = valorActual.textContent + "6";
-            numeros.push("6");
-        break;
-
-        case "7": 
-            valorActual.textContent = valorActual.textContent + "7";
-            numeros.push("7");
-        break;
-
-        case "8": 
-            valorActual.textContent = valorActual.textContent + "8";
-            numeros.push("8");
-        break;
-
-        case "9": 
-            valorActual.textContent = valorActual.textContent + "9";
-            numeros.push("9");
-        break;
+    if(nums_availables.includes(num)){
+       var str_num = num.toString()
+       valorActual.textContent = valorActual.textContent + str_num;
+       numeros.push(str_num);
+    }else if(num === "."){
+       numeros.push(num);
+    }else {
+       return "There is an error, that must be handled"
     }
 }
 
