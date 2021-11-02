@@ -1,31 +1,28 @@
 //Ventana Emergente Áreas Formas Geométricas y Cuerpos Geométricos
 
+var onClose = res => {
+    $(res).fadeOut('slow');                 
+    return false; 
+}
+
+var onBTN = res => {
+    $(res).removeAttr("style");
+    $(res).fadeIn("slow");               
+    return false;
+}
+
 $(document).ready(() => {
 
     //Ventana Emergente Formas Geométricas
 
-    $("#btnA").on("click", function(){
-        $("#popup").removeAttr("style");
-        $("#popup").fadeIn("slow");               
-        return false;
-    });      
+    $("#btnA").on("click", () => onBTN("#popup");      
     
-    $("#close").on("click", function(){         
-        $("#popup").fadeOut("slow");                 
-        return false;     
-    });
+    $("#close").on("click",() => onClose("#popup"));
 
     //Ventana Emergente de Cuerpos Geométricos
 
-    $("#btnV").on("click", function(){ 
-        $("#popup2").removeAttr("style");       
-        $("#popup2").fadeIn("slow");                  
-        return false;     
-    });      
+    $("#btnV").on("click", () => onBTN("#popup2");      
     
-    $("#close2").on("click", function(){         
-        $("#popup2").fadeOut('slow');                 
-        return false;     
-    }); 
+    $("#close2").on("click", () => onClose("#popup2"));    
 })
     
