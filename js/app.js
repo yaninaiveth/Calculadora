@@ -89,6 +89,7 @@ function guardaNum(num){
 function punto(tno, pos){
 
     let cont = 0;
+    let err = `Error de sintaxis`
 
     for(let i = 0; i < tno.length; i++){
 
@@ -97,11 +98,13 @@ function punto(tno, pos){
             cont++;
 
             if(cont > 1){
-                valorActual.textContent = `Error de sintaxis`;
+                valorActual.textContent = err;
+                return err;
             }
 
             if(pos != -1){
-                valorActual.textContent = `Error de sintaxis`;
+                valorActual.textContent = err;
+                return err;
             }
         }
     }  
@@ -110,7 +113,7 @@ function punto(tno, pos){
 // Verifica que no haya operadores sucesivos
 
 function verifica(){
-
+    //Aca se podria hacer un switch para la comparacion con cada caracter
     for( let i = 0; i < cadena.length; i++){
 
         for( let j = i + 1; j < cadena.length; j++){
