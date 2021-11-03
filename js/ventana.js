@@ -1,4 +1,3 @@
-//Ventana Emergente Áreas Formas Geométricas y Cuerpos Geométricos
 
 var onClose = res => {
     $(res).fadeOut('slow');                 
@@ -13,16 +12,12 @@ var onBTN = res => {
 
 $(document).ready(() => {
 
-    //Ventana Emergente Formas Geométricas
-
-    $("#btnA").on("click", () => onBTN("#popup");      
+    $("#btnA").on("click", _ => onBTN("#popup"));      
     
-    $("#close").on("click",() => onClose("#popup"));
+    $("#close").on("click",_ => onClose("#popup"));
 
-    //Ventana Emergente de Cuerpos Geométricos
-
-    $("#btnV").on("click", () => onBTN("#popup2");      
+    $("#btnV").on("click", _ => onBTN("#popup2"));      
     
-    $("#close2").on("click", () => onClose("#popup2"));    
+    $("#close2").on("click", _ => onClose("#popup2"));    
 })
     

@@ -1,5 +1,3 @@
-// Declaración de constantes
-
 const valorAnterior = document.getElementById("anterior");
 
 const valorActual = document.getElementById("actual");
@@ -12,24 +10,14 @@ const botDel = document.getElementsByClassName("del");
 
 let valAct = document.getElementById("actual").value;
 
-// Declaración de variables
-
 let numeros = [];
-let nums_availables = [0,1,2,3,4,5,6,7,8,9]
-let  cadena = "";
-
-
-//Declaración de funciones
-
-// Guarda los números en un arreglo
+let nums_availables = [".","0","1","2","3","4","5","6","7","8","9"]
+let cadena = "";
 
 function guardaNum(num){ 
     if(nums_availables.includes(num)){
-       var str_num = num.toString()
-       valorActual.textContent = valorActual.textContent + str_num;
-       numeros.push(str_num);
-    }else if(num === "."){
-       numeros.push(num);
+        valorActual.textContent = valorActual.textContent + num;
+        numeros.push(num);
     }else {
        return "There is an error, that must be handled"
     }
@@ -114,7 +102,6 @@ function verifica(){
         }
     }
 }
-
 
 function convierteEnCadena(arreglo){
 
@@ -233,7 +220,7 @@ function concatenaOperadores(op){
 // Evento de los botones números
 
 botNum.forEach(boton =>{
-    boton.addEventListener("click", () => {
+    boton.addEventListener("click", _ => {
         guardaNum(boton.value);
     });
 });
@@ -242,7 +229,7 @@ botNum.forEach(boton =>{
 //Evento de los operadores
 
 botOp.forEach(boton =>{
-    boton.addEventListener("click", () => {
+    boton.addEventListener("click", _ => {
         concatenaOperadores(boton.value);
     });
 });
