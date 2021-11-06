@@ -1,14 +1,12 @@
 const valorAnterior = document.getElementById("anterior");
-
 const valorActual = document.getElementById("actual");
 
 const botNum = document.querySelectorAll(".numero");
-
 const botOp = document.querySelectorAll(".operador");
 
 const botDel = document.getElementsByClassName("del");
 
-let valAct = document.getElementById("actual").value;
+let valAct = valorActual.value;
 
 let numeros = [];
 let nums_availables = [".","0","1","2","3","4","5","6","7","8","9"]
