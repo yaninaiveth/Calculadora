@@ -18,6 +18,7 @@ var colorMode = _ => {
 		return `It should has an initial color`
 	}
 
+	changeMode()
 	console.log('Here color should change')
 }
 
@@ -38,6 +39,8 @@ var changeMode = e => {
 			}else if (MODE_COLOR === 'green'){
 				btn.value = ops_green[i]
 				btn.innerHTML = ops_green[i]
+			}else {
+				return 'There is an error'
 			}
 			i++
 		}		
