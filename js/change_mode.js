@@ -1,18 +1,24 @@
 var available_op = ['sumar','restar','multiplicar','dividir', 'igual']
 
-var new_ops_blue = ['sen','cos','tangente','exp','raiz']
-var new_ops_red = ['arcsen','arcocos', 'arctan', 'ln', 'pot']
+var ops_blue = ['sen','cos','tangente','exp','raiz']
+var ops_red = ['arcsen','arcocos', 'arctan', 'ln', 'pot']
+var ops_green = ['hyp','dec','hex','bin','oct']
 
 var MODE_COLOR = 'blue'
 
-var colorMode = color => {
+var colorMode = _ => {
 	if(MODE_COLOR === 'blue'){
 		MODE_COLOR = 'red'
 	}else if(MODE_COLOR === 'red'){
+		MODE_COLOR = 'green'
+	}else if(MODE_COLOR === 'green'){
 		MODE_COLOR = 'blue'
-	}else{
+	}
+	else{
 		return `It should has an initial color`
 	}
+
+	console.log('Here color should change')
 }
 
 var changeMode = e => {
@@ -24,20 +30,32 @@ var changeMode = e => {
 		if(available_op.includes(btn.value)){
 
 			if(MODE_COLOR === 'red'){
-				btn.value = new_ops_red[i]
-				btn.innerHTML = new_ops_red[i]
+				btn.value = ops_red[i]
+				btn.innerHTML = ops_red[i]
 			}else if (MODE_COLOR === 'blue'){
-				btn.value = new_ops_blue[i]
-				btn.innerHTML = new_ops_blue[i]
+				btn.value = ops_blue[i]
+				btn.innerHTML = ops_blue[i]
+			}else if (MODE_COLOR === 'green'){
+				btn.value = ops_green[i]
+				btn.innerHTML = ops_green[i]
 			}
 			i++
 		}		
 	})
+
+	if(document.getElementById('mode_color') === null){
+		var ALTERN_MODE_COLOR_BTN = document.createElement('BUTTON')
+
+		ALTERN_MODE_COLOR_BTN.innerHTML = "COLOR"
+		ALTERN_MODE_COLOR_BTN.id = 'mode_color'
+		ALTERN_MODE_COLOR_BTN.onclick = _ => colorMode()
+
+		document.getElementById('btn_section').appendChild(ALTERN_MODE_COLOR_BTN)
+	}
+
 }
 
 
-var MODE   = document.getElementById('mode_color')
 var CHANGE = document.getElementById('change')
 
-MODE.addEventListener('click', _ => colorMode())
 CHANGE.addEventListener('click', changeMode)
