@@ -1,36 +1,28 @@
 var available_op = ['sumar','restar','multiplicar','dividir', 'igual']
 
-var ops_blue = ['sen','cos','tangente','exp','raiz']
-var ops_red = ['arcsen','arcocos', 'arctan', 'ln', 'pot']
+var ops_blue = 	['sen','cos','tangente','exp','raiz']
+var ops_red = 	['arcsen','arcocos', 'arctan', 'ln', 'pot']
 var ops_green = ['hyp','dec','hex','bin','oct']
 
 var MODE_COLOR = 'blue'
-
-var colorMode = _ => {
-	if(MODE_COLOR === 'blue'){
-		MODE_COLOR = 'red'
-	}else if(MODE_COLOR === 'red'){
-		MODE_COLOR = 'green'
-	}else if(MODE_COLOR === 'green'){
-		MODE_COLOR = 'blue'
-	}
-	else{
-		return `It should has an initial color`
-	}
-
-	changeMode()
-	console.log('Here color should change')
-}
 
 var changeMode = e => {
 	var operators = [...document.getElementsByClassName('operador')]
 	var i = 0
 
+	if(MODE_COLOR === 'red'){
+		console.log('it is red')
+	}
+
+
+
 	operators.forEach(btn => {
-	
+
 		if(available_op.includes(btn.value)){
+			console.log('available')
 
 			if(MODE_COLOR === 'red'){
+				console.log(MODE_COLOR + ' there')
 				btn.value = ops_red[i]
 				btn.innerHTML = ops_red[i]
 			}else if (MODE_COLOR === 'blue'){
@@ -58,6 +50,22 @@ var changeMode = e => {
 
 }
 
+var colorMode = _ => {
+	if(MODE_COLOR === 'blue'){
+		MODE_COLOR = 'red'
+	}else if(MODE_COLOR === 'red'){
+		MODE_COLOR = 'green'
+	}else if(MODE_COLOR === 'green'){
+		MODE_COLOR = 'blue'
+	}
+	else{
+		return `It should has an initial color`
+	}
+
+	console.log('color: ',MODE_COLOR)
+
+	changeMode()
+}
 
 var CHANGE = document.getElementById('change')
 
