@@ -1,86 +1,23 @@
-// Declaración de constantes
-
 const valorAnterior = document.getElementById("anterior");
-
 const valorActual = document.getElementById("actual");
 
 const botNum = document.querySelectorAll(".numero");
-
 const botOp = document.querySelectorAll(".operador");
 
 const botDel = document.getElementsByClassName("del");
 
-let valAct = document.getElementById("actual").value;
-
-// Declaración de variables
+let valAct = valorActual.value;
 
 let numeros = [];
-
-let  cadena = "";
-
-
-//Declaración de funciones
-
-// Guarda los números en un arreglo
+let nums_availables = [".","0","1","2","3","4","5","6","7","8","9"]
+let cadena = "";
 
 function guardaNum(num){ 
-
-    switch (num){
-
-        case ".":
-            valorActual.textContent = valorActual.textContent + ".";
-            numeros.push(".");
-        break;
-
-        case "0": 
-            valorActual.textContent = valorActual.textContent + "0";
-            numeros.push("0");
-        break;
-
-        case "1": 
-            valorActual.textContent = valorActual.textContent + "1";
-            numeros.push("1");
-        break;
-
-        case "2": 
-            valorActual.textContent = valorActual.textContent + "2";
-            numeros.push("2");
-        break;
-
-        case "3": 
-            valorActual.textContent = valorActual.textContent + "3";
-            numeros.push("3");
-        break;
-
-        case "4": 
-            valorActual.textContent = valorActual.textContent + "4";
-            numeros.push("4");
-        break;
-
-        case "5": 
-            valorActual.textContent = valorActual.textContent + "5";
-            numeros.push("5");
-        break;
-
-        case "6": 
-            valorActual.textContent = valorActual.textContent + "6";
-            numeros.push("6");
-        break;
-
-        case "7": 
-            valorActual.textContent = valorActual.textContent + "7";
-            numeros.push("7");
-        break;
-
-        case "8": 
-            valorActual.textContent = valorActual.textContent + "8";
-            numeros.push("8");
-        break;
-
-        case "9": 
-            valorActual.textContent = valorActual.textContent + "9";
-            numeros.push("9");
-        break;
+    if(nums_availables.includes(num)){
+        valorActual.textContent = valorActual.textContent + num;
+        numeros.push(num);
+    }else {
+       return "There is an error, that must be handled"
     }
 }
 
@@ -89,6 +26,7 @@ function guardaNum(num){
 function punto(tno, pos){
 
     let cont = 0;
+    let err = `Error de sintaxis`
 
     for(let i = 0; i < tno.length; i++){
 
@@ -97,11 +35,13 @@ function punto(tno, pos){
             cont++;
 
             if(cont > 1){
-                valorActual.textContent = `Error de sintaxis`;
+                valorActual.textContent = err;
+                return err;
             }
 
             if(pos != -1){
-                valorActual.textContent = `Error de sintaxis`;
+                valorActual.textContent = err;
+                return err;
             }
         }
     }  
@@ -110,7 +50,7 @@ function punto(tno, pos){
 // Verifica que no haya operadores sucesivos
 
 function verifica(){
-
+    //Aca se podria hacer un switch para la comparacion con cada caracter
     for( let i = 0; i < cadena.length; i++){
 
         for( let j = i + 1; j < cadena.length; j++){
@@ -160,7 +100,6 @@ function verifica(){
         }
     }
 }
-
 
 function convierteEnCadena(arreglo){
 
@@ -279,7 +218,7 @@ function concatenaOperadores(op){
 // Evento de los botones números
 
 botNum.forEach(boton =>{
-    boton.addEventListener("click", () => {
+    boton.addEventListener("click", _ => {
         guardaNum(boton.value);
     });
 });
@@ -288,7 +227,7 @@ botNum.forEach(boton =>{
 //Evento de los operadores
 
 botOp.forEach(boton =>{
-    boton.addEventListener("click", () => {
+    boton.addEventListener("click", _ => {
         concatenaOperadores(boton.value);
     });
 });

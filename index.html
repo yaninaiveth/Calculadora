@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Final</title>
 
-    <!--Link Font Awesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-
-    <!--Link Estilo-->
     <link rel="stylesheet" href="style/estilo.css">
 </head>
 
@@ -19,9 +16,13 @@
         <div class="calculadora">
 
           <div class="pantalla">
+            <div id="btn_section">
+              <button id="change">SCIENT</button>
+            </div>
             <div id="anterior"></div>
             <div id="actual"></div>
           </div>
+
 
           <button class="col-2" onclick=resetea()>C</button>
           <button class="del" onclick=eliminaUltimo()>&larr;</button>
@@ -215,6 +216,7 @@
 
     <!--Link calculadora-->
     <script src="js/app.js"></script>
+    <script src="js/change_mode.js"></script>
 
 </body>
 </html>
