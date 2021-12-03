@@ -5,24 +5,19 @@ var ops_red = 	['arcsen','arcocos', 'arctan', 'ln', 'pot']
 var ops_green = ['hyp','dec','hex','bin','oct']
 
 var MODE_COLOR = 'blue'
+var COLORS = ['blue','green','red']
 
 var changeMode = e => {
 	var operators = [...document.getElementsByClassName('operador')]
 	var i = 0
 
-	if(MODE_COLOR === 'red'){
-		console.log('it is red')
-	}
-
-
-
 	operators.forEach(btn => {
 
-		if(available_op.includes(btn.value)){
-			console.log('available')
+		if(COLORS.includes(MODE_COLOR)){
+
+			console.log(`${MODE_COLOR} operators`)
 
 			if(MODE_COLOR === 'red'){
-				console.log(MODE_COLOR + ' there')
 				btn.value = ops_red[i]
 				btn.innerHTML = ops_red[i]
 			}else if (MODE_COLOR === 'blue'){
@@ -61,8 +56,6 @@ var colorMode = _ => {
 	else{
 		return `It should has an initial color`
 	}
-
-	console.log('color: ',MODE_COLOR)
 
 	changeMode()
 }
