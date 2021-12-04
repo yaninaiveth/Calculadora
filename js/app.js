@@ -145,9 +145,12 @@ function opera(){
     let termino = [];
     let operacion = "";
 
+    var normal_ops = ['+','-','*','/','=']
+    var blue_ops = ['sen','cos','tan','exp','raiz']
+
     for(let i = 0; i <= numeros.length; i++){
 
-        if ((numeros[i] === "+") || (numeros[i] === "-") || (numeros[i] === "=") || (numeros[i] === "/") || (numeros[i] === "*")){
+        if (normal_ops.includes(numeros[i])){
             
             posicionOperadorPosterior = i;
             console.log(posicionOperadorPosterior);
@@ -161,12 +164,19 @@ function opera(){
             punto(termino); // Envío el término separado para verificar que no haya más de un punto
 
         }
+
     }
 
     for(let j = 0; j < numeros.length-1; j++){
 
         operacion = operacion + numeros[j];
     }
+
+    blue_ops.forEach(each => {
+        if(operacion.includes(each)){
+            
+        }
+    })
 
     let resultado = eval(String(operacion));
 
@@ -211,6 +221,40 @@ function concatenaOperadores(op){
             convierteEnCadena(numeros);
             valorAnterior.textContent = cadena;
             opera();
+        break;
+
+        case "sen":
+            valorActual.textContent = "sen(" + valorActual.textContent + ")"
+            numeros.push('sen')
+            convierteEnCadena(numeros)
+        break;
+
+        case 'cos':
+            valorActual.textContent = 'cos('+valorActual.textContent +")"
+            numeros.push('cos')
+            convierteEnCadena(numeros)
+        break;
+
+        case 'tangente':
+            valorActual.textContent = 'tg('+valorActual.textContent+')'
+            numeros.push('tangente')
+            convierteEnCadena(numeros)
+        break;
+
+        case 'exp':
+            valorActual.textContent = 'e' + valorActual.textContent
+            numeros.push('exp')
+            convierteEnCadena(numeros)
+        break;
+
+        case 'exe':
+            convierteEnCadena(numeros)
+
+            var onExecute = res => {
+
+            }
+
+            execute()
         break;
     }
 }

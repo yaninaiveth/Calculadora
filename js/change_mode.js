@@ -1,6 +1,6 @@
 var available_op = ['sumar','restar','multiplicar','dividir', 'igual']
 
-var ops_blue = 	['sen','cos','tangente','exp','raiz']
+var ops_blue = 	['sen','cos','tangente','exp','exe']
 var ops_red = 	['arcsen','arcocos', 'arctan', 'ln', 'pot']
 var ops_green = ['hyp','dec','hex','bin','oct']
 
