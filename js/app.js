@@ -254,16 +254,12 @@ function concatenaOperadores(op){
     }
 }
 
-// Evento de los botones números
-
 botNum.forEach(boton =>{
     boton.addEventListener("click", _ => {
         guardaNum(boton.value);
     });
 });
 
-
-//Evento de los operadores
 
 botOp.forEach(boton =>{
     boton.addEventListener("click", _ => {

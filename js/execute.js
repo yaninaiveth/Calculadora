@@ -12,7 +12,12 @@ const execute = chain => {
     })
 
     num = chain.split(op)[0]
-    
+
     var op = `${op}(${num})`
     return math.evaluate(op)
+}
+
+const comb = _ => {
+    var chain = valorActual.textContent
+    return math.evaluate(chain)
 }
