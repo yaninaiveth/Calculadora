@@ -224,8 +224,8 @@ function concatenaOperadores(op){
         break;
 
         case "sen":
-            valorActual.textContent = "sen(" + valorActual.textContent + ")"
-            numeros.push('sen')
+            valorActual.textContent = "sin(" + valorActual.textContent + ")"
+            numeros.push('sin')
             convierteEnCadena(numeros)
         break;
 
@@ -248,13 +248,8 @@ function concatenaOperadores(op){
         break;
 
         case 'exe':
-            convierteEnCadena(numeros)
-
-            var onExecute = res => {
-
-            }
-
-            execute()
+            var res = execute(convierteEnCadena(numeros))
+            valorActual.textContent = res
         break;
     }
 }

@@ -1,14 +1,30 @@
 var available_op = ['sumar','restar','multiplicar','dividir', 'igual']
+var symbol_op = ['/','*','-','+','=']
 
 var ops_blue = 	['sen','cos','tangente','exp','exe']
 var ops_red = 	['arcsen','arcocos', 'arctan', 'ln', 'pot']
 var ops_green = ['hyp','dec','hex','bin','oct']
 
 var MODE_COLOR = 'blue'
-var COLORS = ['blue','green','red']
+var COLORS = ['blue','green','red','norm']
 
 var changeMode = e => {
+	var mode_button = e.target
+
 	var operators = [...document.getElementsByClassName('operador')]
+
+	if(mode_button.value == 'scient'){
+		mode_button.value = 'normal'
+		mode_button.innerHTML = 'normal'
+
+		MODE_COLOR = 'blue'
+	}else{
+		mode_button.value = 'scient'
+		mode_button.innerHTML = 'scient'
+
+		MODE_COLOR = 'norm'
+	}
+
 	var i = 0
 
 	operators.forEach(btn => {
@@ -26,6 +42,9 @@ var changeMode = e => {
 			}else if (MODE_COLOR === 'green'){
 				btn.value = ops_green[i]
 				btn.innerHTML = ops_green[i]
+			}else if (MODE_COLOR === 'norm'){
+				btn.value = available_op[i]
+				btn.innerHTML = symbol_op[i]
 			}else {
 				return 'There is an error'
 			}
@@ -46,6 +65,8 @@ var changeMode = e => {
 }
 
 var colorMode = _ => {
+
+
 	if(MODE_COLOR === 'blue'){
 		MODE_COLOR = 'red'
 	}else if(MODE_COLOR === 'red'){
